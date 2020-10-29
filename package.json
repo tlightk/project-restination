@@ -15,6 +15,7 @@
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "dotenv": "^8.2.0",
+    "dotenv-init": "^1.1.0",
     "eslint-plugin-prettier": "^3.1.2",
     "express": "^4.17.1",
     "knex": "^0.21.5",
