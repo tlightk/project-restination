@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Hello Michaelllllllll!"/>
+    <img src="./assets/logo.png" />
+    <HelloWorld msg="Hello Michaelllllllll!" />
+    <button v-on:click="test">TEST!!!</button>
     <div>
       <Map />
     </div>
@@ -11,12 +12,20 @@
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
 import Map from "./components/Map";
+import Vuex from "./store";
 
 export default {
   name: "app",
   components: {
     HelloWorld,
     Map,
+  },
+  methods: {
+    async test() {
+      // this is a test!!!!
+      const result = await Vuex.dispatch("loadMarkers");
+      console.log(result);
+    },
   },
 };
 </script>
