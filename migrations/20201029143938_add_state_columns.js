@@ -1,22 +1,26 @@
 exports.up = function(knex) {
-  return knex.schema.createTable("locations", (table) => {
-    table.increments().index();
+  return knex.schema.hasTable("locations").then(function(exists) {
+    if (!exists) {
+      return knex.schema.createTable("locations", (table) => {
+        table.increments().index();
 
-    table.text("name").notNullable();
+        table.text("name").notNullable();
 
-    table.float("latitude");
+        table.float("latitude");
 
-    table.float("longitude");
+        table.float("longitude");
 
-    table.text("state");
+        table.text("state");
 
-    table.text("city");
+        table.text("city");
 
-    table.text("zip");
+        table.text("zip");
 
-    table.text("county");
+        table.text("county");
 
-    table.text("highway");
+        table.text("highway");
+      });
+    }
   });
 };
 
