@@ -3,39 +3,16 @@
 module.exports = {
   development: {
     client: "pg",
-    connection: {
-      database: "truckstop",
-      user: "sivani",
-    },
+    connection:
+      process.env.DATABASE_URL ||
+      `postgres://${process.env.USER}@127.0.0.1:5432/truckstop`,
+    searchPath: "public",
   },
-
-  staging: {
-    client: "pg",
-    connection: {
-      database: "truckstop",
-      user: "sivani",
-    },
-    pool: {
-      min: 2,
-      max: 10,
-    },
-    migrations: {
-      tableName: "locations",
-    },
+  migrations: {
+    directory: "./migrations",
+    tableName: "knex_migrations",
   },
-
-  production: {
-    client: "pg",
-    connection: {
-      database: "truckstop",
-      user: "sivani",
-    },
-    pool: {
-      min: 2,
-      max: 10,
-    },
-    migrations: {
-      tableName: "knex_migrations",
-    },
+  seeds: {
+    directory: "./seeds",
   },
 };
