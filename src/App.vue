@@ -1,22 +1,21 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Hello Michaelllllllll!"/>
     <div>
       <Map />
+      <Locations />
     </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import Map from "./components/Map";
+import Locations from "./components/Locations";
 
 export default {
   name: "app",
   components: {
-    HelloWorld,
     Map,
+    Locations,
   },
 };
 </script>
