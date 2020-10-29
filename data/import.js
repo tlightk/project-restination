@@ -1,7 +1,7 @@
 const fs = require("fs");
 const db = require("../server/knex.js");
 
-(async () => {
+async function seeder() {
   try {
     const locations = JSON.parse(fs.readFileSync("../data/locations.json"));
     for (const location of locations) {
@@ -21,4 +21,6 @@ const db = require("../server/knex.js");
   } catch (err) {
     console.error("Error inserting records", err);
   }
-})();
+}
+
+module.exports = seeder;
