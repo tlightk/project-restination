@@ -3,6 +3,7 @@
     <div>
       <Map />
       <Locations />
+      <Services />
     </div>
   </div>
 </template>
@@ -10,12 +11,14 @@
 <script>
 import Map from "./components/Map";
 import Locations from "./components/Locations";
+import Services from "./components/Services";
 
 export default {
   name: "app",
   components: {
     Map,
     Locations,
+    Services,
   },
 };
 </script>
