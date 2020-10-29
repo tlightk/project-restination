@@ -2788,7 +2788,7 @@ commander@2.17.x:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
   integrity sha512-wPMUt6FnH2yzG95SA6mzjQOEKUU3aLaDEmzs1ti+1E9h+CsrZghRlqEM/EJ4KscsQVG8uNN4uVreUeT8+drlgg==
 
-commander@^2.18.0, commander@^2.19.0, commander@^2.20.0:
+commander@^2.11.0, commander@^2.18.0, commander@^2.19.0, commander@^2.20.0:
   version "2.20.3"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
@@ -3365,6 +3365,13 @@ decode-uri-component@^0.2.0:
   resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
   integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
 
+decomment@^0.9.1:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/decomment/-/decomment-0.9.3.tgz#b913f32e5fe1113848f516caa5c7afefa9544d38"
+  integrity sha512-5skH5BfUL3n09RDmMVaHS1QGCiZRnl2nArUwmsE9JRY93Ueh3tihYl5wIrDdAuXnoFhxVis/DmRWREO2c6DG3w==
+  dependencies:
+    esprima "4.0.1"
+
 decompress-response@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/decompress-response/-/decompress-response-3.3.0.tgz#80a4dd323748384bfa248083622aedec982adff3"
@@ -3649,6 +3656,15 @@ dotenv-expand@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-5.1.0.tgz#3fbaf020bfd794884072ea26b1e9791d45a629f0"
   integrity sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
+
+dotenv-init@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/dotenv-init/-/dotenv-init-1.1.0.tgz#2a44311ffad05cc34a3882a8d46d1082bbe1c069"
+  integrity sha1-KkQxH/rQXMNKOIKo1G0QgrvhwGk=
+  dependencies:
+    commander "^2.11.0"
+    decomment "^0.9.1"
+    globs "^0.1.3"
 
 dotenv@^8.2.0:
   version "8.2.0"
@@ -3998,7 +4014,7 @@ espree@^5.0.1:
     acorn-jsx "^5.0.0"
     eslint-visitor-keys "^1.0.0"
 
-esprima@^4.0.0, esprima@^4.0.1:
+esprima@4.0.1, esprima@^4.0.0, esprima@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
   integrity sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
@@ -4694,7 +4710,7 @@ glob@7.1.3:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-glob@^7.0.3, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4:
+glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4:
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
   integrity sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
@@ -4788,6 +4804,13 @@ globby@^9.2.0:
     ignore "^4.0.3"
     pify "^4.0.1"
     slash "^2.0.0"
+
+globs@^0.1.3:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/globs/-/globs-0.1.4.tgz#1d13639f6174e4ae73a7f936da7d9a079f657c1c"
+  integrity sha512-D23dWbOq48vlOraoSigbcQV4tWrnhwk+E/Um2cMuDS3/5dwGmdFeA7L/vAvDhLFlQOTDqHcXh35m/71g2A2WzQ==
+  dependencies:
+    glob "^7.1.1"
 
 got@^9.6.0:
   version "9.6.0"
