@@ -1,24 +1,21 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png" />
-    <HelloWorld msg="Hello Michaelllllllll!" />
-    <button v-on:click="test">TEST!!!</button>
     <div>
       <Map />
+      <Searchbox />
     </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import Map from "./components/Map";
-import Vuex from "./store";
+import Searchbox from "./components/Searchbox";
 
 export default {
   name: "app",
   components: {
-    HelloWorld,
     Map,
+    Searchbox,
   },
   methods: {
     async test() {
