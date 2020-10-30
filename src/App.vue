@@ -2,23 +2,20 @@
   <div id="app">
     <div>
       <Map />
-      <Locations />
-      <Services />
+      <Searchbox />
     </div>
   </div>
 </template>
 
 <script>
 import Map from "./components/Map";
-import Locations from "./components/Locations";
-import Services from "./components/Services";
+import Searchbox from "./components/Searchbox";
 
 export default {
   name: "app",
   components: {
     Map,
-    Locations,
-    Services,
+    Searchbox,
   },
 };
 </script>

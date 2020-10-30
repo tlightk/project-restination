@@ -5,12 +5,6 @@
 
     <input type="checkbox" name="wifi" />
     <label for="wifi">Wifi</label>
-
-    <input type="checkbox" name="" />
-    <label for=""></label>
-
-    <input type="checkbox" name="" />
-    <label for=""></label>
   </div>
 </template>
 
