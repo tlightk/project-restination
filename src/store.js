@@ -7,8 +7,13 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     locations: [],
+    markers: [],
+    //ATMfilter: false
   },
   mutations: {
+    setMarkers(state, markers) {
+      state.markers = markers;
+    },
     setLocations(state, locations) {
       state.locations = locations;
     },
@@ -26,7 +31,16 @@ export default new Vuex.Store({
           defaultAnimation: 2,
         }));
         console.log("MARKERS", markers);
-        commit("setLocations", markers);
+        commit("setMarkers", markers);
+      } catch (err) {
+        console.error(err);
+      }
+    },
+    async loadLocations({ commit }) {
+      try {
+        const locations = await axios.get("/api/locations"); // ES6 destructuring & aliasing
+        console.log("LOCATIONS", locations);
+        commit("setLocations", locations);
       } catch (err) {
         console.error(err);
       }
