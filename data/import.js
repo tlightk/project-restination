@@ -14,7 +14,7 @@ async function seeder() {
       const zip = location.Addresses[0].Zip;
       const highway = location.Site.Highway;
 
-      const result = await db("locations").insert({
+      await db("locations").insert({
         siteid,
         latitude,
         longitude,
@@ -24,7 +24,6 @@ async function seeder() {
         zip,
         highway,
       });
-      return result;
     }
   } catch (err) {
     console.error("Error inserting records", err);
