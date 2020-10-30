@@ -5,13 +5,13 @@ async function seeder() {
   try {
     const locations = JSON.parse(fs.readFileSync("data/locations.json"));
     for (const location of locations) {
-      const id = location.Site.SiteId;
+      const siteid = location.Site.SiteId;
       const latitude = location.Site.Latitude;
       const longitude = location.Site.Longitude;
       const name = location.Site.SiteName;
 
-      const result = await db("newlocations").insert({
-        id,
+      const result = await db("locations").insert({
+        siteid,
         latitude,
         longitude,
         name,
