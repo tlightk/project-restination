@@ -9,14 +9,22 @@ async function seeder() {
       const latitude = location.Site.Latitude;
       const longitude = location.Site.Longitude;
       const name = location.Site.SiteName;
+      const state = location.Addresses[0].State;
+      const city = location.Addresses[0].City;
+      const zip = location.Addresses[0].Zip;
+      const highway = location.Site.Highway;
 
       const result = await db("locations").insert({
         siteid,
         latitude,
         longitude,
         name,
+        state,
+        city,
+        zip,
+        highway,
       });
-      console.log("RESULT", result);
+      return result;
     }
   } catch (err) {
     console.error("Error inserting records", err);
