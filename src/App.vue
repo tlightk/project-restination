@@ -17,6 +17,13 @@ export default {
     Map,
     Searchbox,
   },
+  methods: {
+    async test() {
+      // this is a test!!!!
+      const result = await Vuex.dispatch("loadMarkers");
+      console.log(result);
+    },
+  },
 };
 </script>
 

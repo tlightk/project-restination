@@ -25,6 +25,7 @@ export default new Vuex.Store({
           key: location.name,
           defaultAnimation: 2,
         }));
+        console.log("MARKERS", markers);
         commit("setLocations", markers);
       } catch (err) {
         console.error(err);
