@@ -58,9 +58,11 @@ Deploy Restination on [Heroku](www.heroku.com). Our deployment can be seen [here
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Vue](https://vuejs.org/) - Web Framework
+* [Vuex](https://vuex.vuejs.org/) - State Management Library
+* [PostgresQL](https://www.postgresql.org/) - Database Management
+* [Knex](http://knexjs.org/) - Query Builder
+* [axios](https://github.com/axios/axios) - HTTP Client
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
