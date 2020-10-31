@@ -8,29 +8,31 @@ Welcome to Restination, your one-stop single-page app for searching truck stops 
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Install Postgres and create a new project titled "truckstop" in your local machine.
 
 ```
-Give examples
+CREATE DATABSE truckstop;
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Set up yarn and dependencies by typing yarn into your command line.
 
 ```
-Give the example
+yarn
 ```
 
-And repeat
+Create an .env file in the root folder and add the database URL line with your Postgres user credentials.
 
 ```
-until finished
+DATABASE_URL=postgres://${USER:PASSWORD}@127.0.0.1:5432/truckstop
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Type into your command line yarn start to run migrations. This will create a table "locations" in your truckstop database. The locations table will then be seeded with truck stops and their relevant data.
+
+```
+yarn start
+```
 
 ## Running the tests
 
