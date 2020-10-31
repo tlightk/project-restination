@@ -10,7 +10,10 @@ export default new Vuex.Store({
     markers: [],
     filteredLocations: [],
     ATMfilter: false,
+    wififilter: false,
+    Arbysfilter: false,
     Wendysfilter: false,
+    Subwayfilter: false,
     oilChangefilter: false,
     lightMechanicalfilter: false,
     tirePassfilter: false,
@@ -31,8 +34,17 @@ export default new Vuex.Store({
     setATMfilter(state, currentState) {
       state.ATMfilter = currentState;
     },
+    setWififilter(state, currentState) {
+      state.wififilter = currentState;
+    },
     setWendysfilter(state, currentState) {
       state.Wendysfilter = currentState;
+    },
+    setArbysfilter(state, currentState) {
+      state.Arbysfilter = currentState;
+    },
+    setSubwayfilter(state, currentState) {
+      state.Subwayfilter = currentState;
     },
     setOilChangefilter(state, currentState) {
       state.oilChangefilter = currentState;
@@ -77,31 +89,49 @@ export default new Vuex.Store({
         let filteredLocations = locations.data;
         if (state.ATMfilter) {
           console.log("ATMfilter", state.ATMfilter);
-          filteredLocations = locations.data.filter((location) => {
+          filteredLocations = filteredLocations.filter((location) => {
             return location.amenitiesAndServices.includes("ATM");
+          });
+        }
+        if (state.wififilter) {
+          console.log("wififilter", state.wififilter);
+          filteredLocations = filteredLocations.filter((location) => {
+            return location.amenitiesAndServices.includes("WirelessInternet");
+          });
+        }
+        if (state.Arbysfilter) {
+          console.log("Arbysfilter", state.Arbysfilter);
+          filteredLocations = filteredLocations.filter((location) => {
+            return location.restaurants.includes("Arby's");
           });
         }
         if (state.Wendysfilter) {
           console.log("Wendysfilter", state.Wendysfilter);
-          filteredLocations = locations.data.filter((location) => {
+          filteredLocations = filteredLocations.filter((location) => {
             return location.restaurants.includes("Wendy's");
+          });
+        }
+        if (state.Subwayfilter) {
+          console.log("Subwayfilter", state.Wendysfilter);
+          filteredLocations = filteredLocations.filter((location) => {
+            return location.restaurants.includes("Subway");
           });
         }
         if (state.oilChangefilter) {
           console.log("oilChangefilter", state.oilChangefilter);
-          filteredLocations = locations.data.filter((location) => {
+          filteredLocations = filteredLocations.filter((location) => {
             return location.amenitiesAndServices.includes("Oil Cha");
           });
         }
         if (state.lightMechanicalfilter) {
           console.log("lightMechanicalfilter", state.lightMechanicalfilter);
-          filteredLocations = locations.data.filter((location) => {
+          filteredLocations = filteredLocations.filter((location) => {
             return location.amenitiesAndServices.includes("LightMechanical");
           });
         }
         if (state.tirePassfilter) {
           console.log("tirePassfilter", state.tirePassfilter);
-          filteredLocations = locations.data.filter((location) => {
+          filteredLocations = filteredLocations.filter((location) => {
             return location.amenitiesAndServices.includes("TirePass");
           });
         }
@@ -128,6 +158,24 @@ export default new Vuex.Store({
       }
       commit("setATMfilter", currentState);
     },
+    changeWififilter({ state, commit }) {
+      let currentState;
+      if (state.wififilter) {
+        currentState = false;
+      } else {
+        currentState = true;
+      }
+      commit("setWififilter", currentState);
+    },
+    changeArbysfilter({ state, commit }) {
+      let currentState;
+      if (state.Arbysfilter) {
+        currentState = false;
+      } else {
+        currentState = true;
+      }
+      commit("setArbysfilter", currentState);
+    },
     changeWendysfilter({ state, commit }) {
       let currentState;
       if (state.Wendysfilter) {
@@ -136,6 +184,15 @@ export default new Vuex.Store({
         currentState = true;
       }
       commit("setWendysfilter", currentState);
+    },
+    changeSubwayfilter({ state, commit }) {
+      let currentState;
+      if (state.Subwayfilter) {
+        currentState = false;
+      } else {
+        currentState = true;
+      }
+      commit("setSubwayfilter", currentState);
     },
     changeOilChangefilter({ state, commit }) {
       let currentState;

@@ -2,7 +2,6 @@
   <div class="searchbox-container">
     <Locations />
     <Services />
-    <Types />
     <Amenities />
     <Restaurants />
   </div>
@@ -11,7 +10,6 @@
 <script>
 import Locations from "./Locations";
 import Services from "./Services";
-import Types from "./Types";
 import Amenities from "./Amenities";
 import Restaurants from "./Restaurants";
 
@@ -20,7 +18,6 @@ export default {
   components: {
     Locations,
     Services,
-    Types,
     Amenities,
     Restaurants,
   },
