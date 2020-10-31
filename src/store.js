@@ -10,6 +10,7 @@ export default new Vuex.Store({
     markers: [],
     filteredLocations: [],
     ATMfilter: false,
+    wififilter: false,
     Arbysfilter: false,
     Wendysfilter: false,
     Subwayfilter: false,
@@ -32,6 +33,9 @@ export default new Vuex.Store({
     },
     setATMfilter(state, currentState) {
       state.ATMfilter = currentState;
+    },
+    setWififilter(state, currentState) {
+      state.wififilter = currentState;
     },
     setWendysfilter(state, currentState) {
       state.Wendysfilter = currentState;
@@ -87,6 +91,12 @@ export default new Vuex.Store({
           console.log("ATMfilter", state.ATMfilter);
           filteredLocations = filteredLocations.filter((location) => {
             return location.amenitiesAndServices.includes("ATM");
+          });
+        }
+        if (state.wififilter) {
+          console.log("wififilter", state.wififilter);
+          filteredLocations = filteredLocations.filter((location) => {
+            return location.amenitiesAndServices.includes("WirelessInternet");
           });
         }
         if (state.Arbysfilter) {
@@ -147,6 +157,15 @@ export default new Vuex.Store({
         currentState = true;
       }
       commit("setATMfilter", currentState);
+    },
+    changeWififilter({ state, commit }) {
+      let currentState;
+      if (state.wififilter) {
+        currentState = false;
+      } else {
+        currentState = true;
+      }
+      commit("setWififilter", currentState);
     },
     changeArbysfilter({ state, commit }) {
       let currentState;
