@@ -54,7 +54,7 @@ Give an example
 
 ## Deployment
 
-Deploy Restination on Heroku. Our deployment can be seen [here.](https://restination.herokuapp.com/)
+Deploy Restination on [Heroku](www.heroku.com). Our deployment can be seen [here.](https://restination.herokuapp.com/)
 
 ## Built With
 
@@ -62,6 +62,8 @@ Deploy Restination on Heroku. Our deployment can be seen [here.](https://restina
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Authors
 
