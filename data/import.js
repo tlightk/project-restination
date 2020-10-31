@@ -14,6 +14,7 @@ async function seeder() {
       const zip = location.Addresses[0].Zip;
       const highway = location.Site.Highway;
       const storetype = location.FacilitySubtype.Name;
+      
       // amenities & services
       let amenitiesAndServices = '';
       
@@ -25,12 +26,10 @@ async function seeder() {
       // restaurants
       let restaurants = '';
       
-      for(let restaurant of location.Site.Concepts){
-        restaurants += restaurant.Name + ', ';
+      for(let element of location.Site.Concepts){
+        restaurants += element.Concept.Name + ', ';
       };
 
-
-      console.log("storetype: ", storetype);
 
       await db("locations").insert({
         siteid,
