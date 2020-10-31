@@ -21,6 +21,14 @@ export default {
     Amenities,
     Restaurants,
   },
+  mounted() {
+    this.getAllMarkers();
+  },
+  methods: {
+    async getAllMarkers() {
+      await this.$store.dispatch("resetMarkers");
+    },
+  },
 };
 </script>
 

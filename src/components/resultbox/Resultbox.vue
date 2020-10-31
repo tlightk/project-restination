@@ -1,12 +1,17 @@
 <template>
   <div id="Resultbox">
     <h1>We found these stores for you</h1>
-    <div>      
-      <div class="singleResult" v-for="location in filteredLocations" v-bind:key="location.id">
-         Name: {{location.name}} , State: {{location.state}}, City: {{location.city}}, Highway: {{location.highway}}, Amenities & Services: {{location.amenitiesAndServices}}, Restaurants: {{location.restaurants}}
+    <div>
+      <div
+        class="singleResult"
+        v-for="location in filteredLocations"
+        v-bind:key="location.id"
+      >
+        Name: {{ location.name }} , State: {{ location.state }}, City:
+        {{ location.city }}, Highway: {{ location.highway }}, Amenities &
+        Services: {{ location.amenitiesAndServices }}, Restaurants:
+        {{ location.restaurants }}
       </div>
- 
-          
     </div>
   </div>
 </template>
@@ -20,12 +25,13 @@ export default {
     this.getLocations();
   },
   computed: {
-    ...mapState(['locations', 'filteredLocations']),
+    ...mapState(["locations", "filteredLocations"]),
   },
   methods: {
-    getLocations() {
-      this.$store.dispatch("loadLocations");
-      this.$store.dispatch("filterLocations");
+    async getLocations() {
+      await this.$store.dispatch("loadLocations");
+      await this.$store.dispatch("filterLocations");
+      await this.$store.dispatch("filterMarkers");
     },
     accessAllStores() {
       return this.locations;
@@ -42,8 +48,6 @@ export default {
 
 .singleResult {
   margin: 15px;
-  background-color: rgb(235, 235, 235)
+  background-color: rgb(235, 235, 235);
 }
-
-
 </style>
