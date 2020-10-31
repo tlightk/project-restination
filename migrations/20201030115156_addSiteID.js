@@ -1,6 +1,6 @@
 exports.up = function(knex) {
   return knex.schema.table("locations", function(table) {
-    table.integer("siteid");
+    table.integer("siteid").notNullable().unique();
   });
 };
 
