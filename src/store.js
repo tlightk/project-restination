@@ -9,7 +9,7 @@ export default new Vuex.Store({
     locations: [],
     markers: [],
     filteredLocations: [],
-    ATMfilter: true,
+    ATMfilter: false,
     Wendysfilter: false,
   },
   mutations: {
@@ -24,7 +24,10 @@ export default new Vuex.Store({
     },
     setATMfilter(state, currentState) {
       state.ATMfilter = currentState;
-    }
+    },
+    setWendysfilter(state, currentState) {
+      state.Wendysfilter = currentState;
+    },
   },
   actions: {
     async loadMarkers({ commit }) {
@@ -56,13 +59,18 @@ export default new Vuex.Store({
     async filterLocations({ state, commit }) {
       try {
         const locations = await axios.get("/api/locations"); // ES6 destructuring & aliasing
-        let filteredLocations;
+        let filteredLocations = locations.data;
         if (state.ATMfilter) {
-          console.log("ATMfilter", state.ATMfilter)
-          filteredLocations = locations.data.filter(location => {
-                return location.amenitiesAndServices.includes("ATM")})
-        } else {
-          filteredLocations = locations.data;
+          console.log("ATMfilter", state.ATMfilter);
+          filteredLocations = locations.data.filter((location) => {
+            return location.amenitiesAndServices.includes("ATM");
+          });
+        }
+        if (state.Wendysfilter) {
+          console.log("Wendysfilter", state.Wendysfilter);
+          filteredLocations = locations.data.filter((location) => {
+            return location.restaurants.includes("Wendy's");
+          });
         }
         commit("setFilteredLocations", filteredLocations);
       } catch (err) {
@@ -71,12 +79,21 @@ export default new Vuex.Store({
     },
     changeATMfilter({ state, commit }) {
       let currentState;
-      if(state.ATMfilter) {
+      if (state.ATMfilter) {
         currentState = false;
       } else {
         currentState = true;
       }
       commit("setATMfilter", currentState);
+    },
+    changeWendysfilter({ state, commit }) {
+      let currentState;
+      if (state.Wendysfilter) {
+        currentState = false;
+      } else {
+        currentState = true;
+      }
+      commit("setWendysfilter", currentState);
     },
   },
 });
