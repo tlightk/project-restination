@@ -25,20 +25,20 @@ export default {
     Searchbox,
     Resultbox,
   },
-  data: function () {
+  data: function() {
     return {
-      clicked: true
-    }
+      clicked: true,
+    };
   },
   methods: {
     toggleBoxes() {
-      if(this.clicked) {
+      if (this.clicked) {
         this.clicked = false;
       } else {
         this.clicked = true;
+        this.$store.dispatch("changeFilteredLocations"); // reset filtered locations
       }
-      console.log('was toggled!!! now iam: ', this.clicked);
-    }
+    },
   },
 };
 </script>

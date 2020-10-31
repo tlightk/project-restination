@@ -25,6 +25,9 @@ export default new Vuex.Store({
     setFilteredLocations(state, filteredLocations) {
       state.filteredLocations = filteredLocations;
     },
+    resetFilteredLocations(state, filteredLocations) {
+      state.filteredLocations = filteredLocations;
+    },
     setATMfilter(state, currentState) {
       state.ATMfilter = currentState;
     },
@@ -103,6 +106,15 @@ export default new Vuex.Store({
           });
         }
         commit("setFilteredLocations", filteredLocations);
+      } catch (err) {
+        console.error(err);
+      }
+    },
+    async changeFilteredLocations({ commit }) {
+      try {
+        const locations = await axios.get("/api/locations");
+        console.log("Filtered locations reset!");
+        commit("resetFilteredLocations", locations);
       } catch (err) {
         console.error(err);
       }
