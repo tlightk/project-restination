@@ -2,7 +2,13 @@
   <div id="app">
     <div>
       <Map />
-      <Searchbox />
+      <button id="search" v-on:click="toggleBoxes">!Search!</button>
+      <div v-if="clicked">
+        <Searchbox />
+      </div>
+      <div v-else>
+        <Resultbox />
+      </div>
     </div>
   </div>
 </template>
@@ -10,19 +16,29 @@
 <script>
 import Map from "./components/Map";
 import Searchbox from "./components/Searchbox";
+import Resultbox from "./components/resultbox/Resultbox";
 
 export default {
   name: "app",
   components: {
     Map,
     Searchbox,
+    Resultbox,
+  },
+  data: function () {
+    return {
+      clicked: true
+    }
   },
   methods: {
-    async test() {
-      // this is a test!!!!
-      const result = await Vuex.dispatch("loadMarkers");
-      console.log(result);
-    },
+    toggleBoxes() {
+      if(this.clicked) {
+        this.clicked = false;
+      } else {
+        this.clicked = true;
+      }
+      console.log('was toggled!!! now iam: ', this.clicked);
+    }
   },
 };
 </script>

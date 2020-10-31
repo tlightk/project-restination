@@ -8,7 +8,9 @@ export default new Vuex.Store({
   state: {
     locations: [],
     markers: [],
-    //ATMfilter: false
+    filteredLocations: [],
+    ATMfilter: true,
+    Wendysfilter: false,
   },
   mutations: {
     setMarkers(state, markers) {
@@ -17,6 +19,12 @@ export default new Vuex.Store({
     setLocations(state, locations) {
       state.locations = locations;
     },
+    setFilteredLocations(state, filteredLocations) {
+      state.filteredLocations = filteredLocations;
+    },
+    setATMfilter(state, currentState) {
+      state.ATMfilter = currentState;
+    }
   },
   actions: {
     async loadMarkers({ commit }) {
@@ -44,6 +52,31 @@ export default new Vuex.Store({
       } catch (err) {
         console.error(err);
       }
+    },
+    async filterLocations({ state, commit }) {
+      try {
+        const locations = await axios.get("/api/locations"); // ES6 destructuring & aliasing
+        let filteredLocations;
+        if (state.ATMfilter) {
+          console.log("ATMfilter", state.ATMfilter)
+          filteredLocations = locations.data.filter(location => {
+                return location.amenitiesAndServices.includes("ATM")})
+        } else {
+          filteredLocations = locations.data;
+        }
+        commit("setFilteredLocations", filteredLocations);
+      } catch (err) {
+        console.error(err);
+      }
+    },
+    changeATMfilter({ state, commit }) {
+      let currentState;
+      if(state.ATMfilter) {
+        currentState = false;
+      } else {
+        currentState = true;
+      }
+      commit("setATMfilter", currentState);
     },
   },
 });

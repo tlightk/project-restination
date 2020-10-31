@@ -1,6 +1,8 @@
 <template>
   <div class="amenities-container">
-    <input type="checkbox" name="atm" />
+    <input 
+    @change='updateATMfilter'
+    type="checkbox" name="atm" />
     <label for="atm">ATM</label>
 
     <input type="checkbox" name="wifi" />
@@ -11,6 +13,11 @@
 <script>
 export default {
   name: "amenities",
+  methods: {
+    updateATMfilter() {
+      this.$store.dispatch("changeATMfilter");
+    }
+  }
 };
 </script>
 
