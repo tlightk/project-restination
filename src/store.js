@@ -74,6 +74,18 @@ export default new Vuex.Store({
         console.error(err);
       }
     },
+    filterMarkers({ commit, state }) {
+      const markers = state.filteredLocations.map((location) => ({
+        position: {
+          lat: location.latitude,
+          lng: location.longitude,
+        },
+        key: location.name,
+        defaultAnimation: 2,
+      }));
+      console.log("FILTERED MARKERS", markers);
+      commit("setMarkers", markers);
+    },
     async loadLocations({ commit }) {
       try {
         const locations = await axios.get("/api/locations"); // ES6 destructuring & aliasing
@@ -135,6 +147,7 @@ export default new Vuex.Store({
             return location.amenitiesAndServices.includes("TirePass");
           });
         }
+        console.log("filtered locations: ", filteredLocations);
         commit("setFilteredLocations", filteredLocations);
       } catch (err) {
         console.error(err);
