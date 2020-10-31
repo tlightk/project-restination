@@ -1,6 +1,11 @@
 <template>
   <div class="restaurants-container">
-    <input type="checkbox" name="arbys" />
+    <input
+      @change="updateArbysfilter"
+      v-bind:checked="Arbysfilter"
+      type="checkbox"
+      name="arbys"
+    />
     <label for="arbys">Arby's</label>
 
     <input
@@ -10,6 +15,14 @@
       name="wendys"
     />
     <label for="wendys">Wendy's</label>
+
+    <input
+      @change="updateSubwayfilter"
+      v-bind:checked="Subwayfilter"
+      type="checkbox"
+      name="subway"
+    />
+    <label for="subway">Subway</label>
   </div>
 </template>
 
@@ -19,11 +32,17 @@ import { mapState } from "vuex";
 export default {
   name: "restaurants",
   computed: {
-    ...mapState(["Wendysfilter"]),
+    ...mapState(["Wendysfilter", "Arbysfilter", "Subwayfilter"]),
   },
   methods: {
     updateWendysfilter() {
       this.$store.dispatch("changeWendysfilter");
+    },
+    updateArbysfilter() {
+      this.$store.dispatch("changeArbysfilter");
+    },
+    updateSubwayfilter() {
+      this.$store.dispatch("changeSubwayfilter");
     },
   },
 };
