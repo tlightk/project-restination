@@ -13,6 +13,23 @@ async function seeder() {
       const city = location.Addresses[0].City;
       const zip = location.Addresses[0].Zip;
       const highway = location.Site.Highway;
+      const storetype = location.FacilitySubtype.Name;
+      
+      // amenities & services
+      let amenitiesAndServices = '';
+      
+      // check custom fields and add amenity or service to variable string if available
+      for (let element of location.CustomFields) {
+        amenitiesAndServices += element.CustomField.Name + ', ';
+      };
+
+      // restaurants
+      let restaurants = '';
+      
+      for(let element of location.Site.Concepts){
+        restaurants += element.Concept.Name + ', ';
+      };
+
 
       await db("locations").insert({
         siteid,
@@ -23,6 +40,9 @@ async function seeder() {
         city,
         zip,
         highway,
+        storetype,
+        amenitiesAndServices,
+        restaurants,
       });
     }
   } catch (err) {
