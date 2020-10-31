@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     locations: [],
     markers: [],
+    allMarkers: [],
     filteredLocations: [],
     ATMfilter: false,
     wififilter: false,
@@ -21,6 +22,9 @@ export default new Vuex.Store({
   mutations: {
     setMarkers(state, markers) {
       state.markers = markers;
+    },
+    setAllMarkers(state, allMarkers) {
+      state.allMarkers = allMarkers;
     },
     setLocations(state, locations) {
       state.locations = locations;
@@ -69,6 +73,7 @@ export default new Vuex.Store({
           defaultAnimation: 2,
         }));
         console.log("MARKERS", markers);
+        commit("setAllMarkers", markers);
         commit("setMarkers", markers);
       } catch (err) {
         console.error(err);
@@ -161,6 +166,9 @@ export default new Vuex.Store({
       } catch (err) {
         console.error(err);
       }
+    },
+    resetMarkers({ commit, state }) {
+      commit("setMarkers", state.allMarkers);
     },
     changeATMfilter({ state, commit }) {
       let currentState;
