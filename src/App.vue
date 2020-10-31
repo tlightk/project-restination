@@ -2,7 +2,7 @@
   <div id="app">
     <div>
       <Map />
-      <button id="search" v-on:click="toggleBoxes">!Search!</button>
+      <button id="search" v-on:click="toggleBoxes">{{ buttonText }}</button>
       <div v-if="clicked">
         <Searchbox />
       </div>
@@ -28,14 +28,17 @@ export default {
   data: function() {
     return {
       clicked: true,
+      buttonText: "Find your restination",
     };
   },
   methods: {
     toggleBoxes() {
       if (this.clicked) {
         this.clicked = false;
+        this.buttonText = "Reset";
       } else {
         this.clicked = true;
+        this.buttonText = "Find your restination";
         this.$store.dispatch("changeFilteredLocations"); // reset filtered locations
       }
     },
