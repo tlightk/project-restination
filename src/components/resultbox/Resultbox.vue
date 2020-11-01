@@ -1,6 +1,6 @@
 <template>
   <div id="Resultbox">
-    <h1>We found these stores for you</h1>
+    <h1>Here's what we found</h1>
     <div>
       <div
         class="singleResult"
