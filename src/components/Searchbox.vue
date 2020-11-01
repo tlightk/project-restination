@@ -1,9 +1,12 @@
 <template>
   <div class="searchbox-container">
-    <Locations />
-    <Services />
-    <Amenities />
-    <Restaurants />
+    <div id="filters">
+      <h1 id='serviceTitle'>Filter for the services below:</h1>
+      <!-- <Locations /> -->
+      <Services />
+      <Amenities />
+      <Restaurants />
+    </div>
   </div>
 </template>
 
@@ -35,5 +38,13 @@ export default {
 <style>
 .searchbox-container {
   margin: 60px;
+  display: flex;
+  justify-content: center;
 }
+
+
+#filters {
+  background-color:#DBF5FF;
+}
+
 </style>
