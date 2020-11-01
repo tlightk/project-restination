@@ -1,3 +1,5 @@
+![Restination logo](https://github.com/heysivani/cc15-project.continuous-delivery-vue-b/blob/staging/img/restination_logo_transparent.png?raw=true)
+
 # Restination
 
 Welcome to Restination, your one-stop single-page app for searching truck stops in the contiguous United States! Whether you're on a road trip, driving cross-country, or just looking for the nearest place to rest, our app delivers the best in searching for the truck stops that will suit your needs. Rest with us on the way to your destination!
