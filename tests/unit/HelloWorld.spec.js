@@ -1,16 +1,12 @@
 import { expect } from "chai";
 import { shallowMount } from "@vue/test-utils";
 import App from "@/App.vue";
-// import Searchbox from "@/components/Searchbox.vue";
-// import Locations from "@/components/Locations.vue";
-// import Services from "@/components/Services.vue";
-// import Amenities from "@/components/Amenities.vue";
-// import Restaurants from "@/components/Restaurants.vue";
+import Resultbox from "@/components/Searchbox.vue";
 
 describe("App.vue", () => {
-  let wrapper;
+  let appWrapper;
   beforeEach(() => {
-    wrapper = shallowMount(App, {
+    appWrapper = shallowMount(App, {
       computed: {
         currentNavIndex() {
           return 1;
@@ -20,12 +16,33 @@ describe("App.vue", () => {
   });
 
   it("should contain 3 div element children", () => {
-    const divs = wrapper.findAll("div");
+    const divs = appWrapper.findAll("div");
     expect(divs.length).to.equal(3);
+  });
+  it("should contain a search button", () => {
+    const button = appWrapper.findAll("button");
+    expect(button.length).to.equal(1);
   });
 });
 
-// //expect(vm.$el.querySelector('.title').textContent)
-// .toBe('todos');
-// expect(vm.$el.querySelector('.new-todo').placeholder)
-//   .toBe('What needs to be done?');
+describe("Resultbox.vue", () => {
+  let resultWrapper;
+  beforeEach(() => {
+    resultWrapper = shallowMount(Resultbox, {
+      computed: {
+        currentNavIndex() {
+          return 1;
+        },
+      },
+    });
+  });
+
+  it("should contain 2 div element children", () => {
+    const divs = resultWrapper.findAll("div");
+    expect(divs.length).to.equal(1);
+  });
+  it("should contain a header", () => {
+    const header = resultWrapper.findAll("h1");
+    expect(header.length).to.equal(0);
+  });
+});
